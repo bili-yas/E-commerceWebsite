@@ -1,0 +1,238 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px 0 0 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    gap: 20px;
+    width: 100%;
+}
+
+.sidebar {
+    background-color: #2b2f33;
+    color: #fff;
+    width: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.sidebar.expanded {
+    transform: translateX(0);
+}
+
+.sidebar h2 {
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar a {
+    color: #fff;
+    margin: 10px 0;
+    display: block;
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    width: calc(100% - 40px);
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    background-color: gray;
+    color: black;
+    border-radius: 30px;
+}
+
+.main-content {
+    flex-grow: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-row .form-group {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.flex-row .form-group:last-child {
+    margin-right: 0;
+}
+
+.profile-form h1 {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label,
+.form-group input,
+.form-group select {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group select {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+    padding: 10px;
+    margin-top: 5px;
+}
+
+input[type="submit"] {
+    padding: 10px 30px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    font-size: 16px;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.order-history {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.order-history h1 {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.order-history table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.order-history th,
+.order-history td {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-history th {
+    background-color: #f4f4f4;
+}
+
+/* New CSS for sidebar toggle */
+.sidebar-toggle {
+    display: none;
+    background-color: #2b2f33;
+    color: #fff;
+    border: none;
+    padding: 5px 5px;
+    cursor: pointer;
+    font-size: 24px;
+    position: fixed;
+    top: 140px;
+    left: 0px;
+    z-index: 1000;
+}
+
+/* Responsive CSS */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+        transform: translateX(-100%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 999;
+    }
+
+    .sidebar.expanded {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .flex-row {
+        flex-direction: column;
+    }
+
+    .profile-picture {
+        margin-left: 0;
+        margin-top: 0;
+        text-align: center;
+    }
+
+    .profile-picture img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .sidebar-toggle {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-group input[type="text"],
+    .form-group select,
+    input[type="text"],
+    input[type="date"],
+    select {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    input[type="submit"] {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+
+    .order-history th, .order-history td {
+        padding: 10px;
+    }
+}

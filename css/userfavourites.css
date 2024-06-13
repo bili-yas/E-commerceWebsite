@@ -1,0 +1,240 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px 0 0 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    gap: 20px;
+    width: 100%;
+}
+
+.sidebar {
+    background-color: #2b2f33;
+    color: #fff;
+    width: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.sidebar.expanded {
+    transform: translateX(0);
+}
+
+.sidebar h2 {
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar a {
+    color: #fff;
+    margin: 10px 0;
+    display: block;
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    width: calc(100% - 40px);
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    background-color: gray;
+    color: black;
+    border-radius: 30px;
+}
+
+.main-content {
+    flex-grow: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.favourites-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.favourites {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.favourites h1 {
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.favourites-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.favourites-list li {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+}
+
+.favourites-list li:hover {
+    background-color: #f4f4f4;
+}
+
+.product-item {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 200px;
+    margin-left: -130px;
+    margin-bottom: 20px;
+}
+
+.product-image img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.product-name {
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.product-rating {
+    color: #ffc107;
+}
+
+.product-price {
+    font-size: 24px;
+    color: #28a745;
+    margin-top: 5px;
+}
+
+.btn-add-to-cart {
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* New CSS for sidebar toggle */
+.sidebar-toggle {
+    display: none;
+    background-color: #2b2f33;
+    color: #fff;
+    border: none;
+    padding: 5px 5px;
+    cursor: pointer;
+    font-size: 24px;
+    position: fixed;
+    top: 140px;
+    left: 0px;
+    z-index: 1000;
+}
+
+/* Responsive CSS */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+        transform: translateX(-100%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 999;
+    }
+
+    .sidebar.expanded {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .flex-row {
+        flex-direction: column;
+    }
+
+    .profile-picture {
+        margin-left: 0;
+        margin-top: 0;
+        text-align: center;
+    }
+
+    .profile-picture img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .sidebar-toggle {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-group input[type="text"],
+    .form-group select,
+    input[type="text"],
+    input[type="date"],
+    select {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    input[type="submit"] {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+
+    .favourites-list li {
+        padding: 10px;
+    }
+
+    .sidebar a {
+        padding: 10px;
+    }
+}
